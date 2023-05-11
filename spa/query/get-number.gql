@@ -1,0 +1,3 @@
+query getNumber($prop: Int!) {
+	number(prop: $prop)
+}

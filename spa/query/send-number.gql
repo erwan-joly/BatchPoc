@@ -1,0 +1,3 @@
+mutation sendNumber($prop: Int!) {
+	sendNumber(prop: $prop)
+}

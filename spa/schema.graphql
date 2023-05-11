@@ -1,0 +1,12 @@
+﻿﻿schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Mutation { 
+	sendNumber(prop: Int!): Int!
+}
+
+type Query { 
+	number(prop: Int!): Int!
+}
