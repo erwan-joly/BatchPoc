@@ -34,7 +34,7 @@ __export(assets_manifest_exports, {
 });
 var assets_manifest_default, init_assets_manifest = __esm({
   "server-assets-manifest:@remix-run/dev/assets-manifest"() {
-    assets_manifest_default = { version: "75b7b649", entry: { module: "/build/entry.client-DRJCDYID.js", imports: ["/build/_shared/chunk-EZIS6G3Y.js", "/build/_shared/chunk-QOW37O7A.js", "/build/_shared/chunk-USE5INNE.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-WWRKGRK4.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-FJ4MGDI3.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-75B7B649.js" };
+    assets_manifest_default = { version: "36e1da80", entry: { module: "/build/entry.client-CXIDW2FU.js", imports: ["/build/_shared/chunk-EZIS6G3Y.js", "/build/_shared/chunk-APWFWNYL.js", "/build/_shared/chunk-USE5INNE.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-WWRKGRK4.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-7KAW74JR.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-36E1DA80.js" };
   }
 });
 
@@ -231,19 +231,19 @@ function Index() {
   });
   return /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("div", { children: [
     "firstData: ",
-    firstData,
+    firstData == null ? void 0 : firstData.number,
     "secondDate: ",
-    secondData
+    secondData == null ? void 0 : secondData.number
   ] }, void 0, !0, {
     fileName: "app/routes/_index.tsx",
-    lineNumber: 22,
-    columnNumber: 11
+    lineNumber: 23,
+    columnNumber: 5
   }, this);
 }
 
 // server-entry-module:@remix-run/dev/server-build
 init_assets_manifest();
-var assetsBuildDirectory = "public\\build", future = { unstable_dev: !1, unstable_postcss: !1, unstable_tailwind: !1, v2_errorBoundary: !0, v2_meta: !0, v2_normalizeFormMethod: !0, v2_routeConvention: !0 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
+var assetsBuildDirectory = "public/build", future = { unstable_dev: !1, unstable_postcss: !1, unstable_tailwind: !1, v2_errorBoundary: !0, v2_meta: !0, v2_normalizeFormMethod: !0, v2_routeConvention: !0 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
   root: {
     id: "root",
     parentId: void 0,
