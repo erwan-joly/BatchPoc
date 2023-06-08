@@ -4,17 +4,17 @@
  * For more information, see https://remix.run/file-conventions/entry.client
  */
 
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { RemixBrowser } from "@remix-run/react";
 import { startTransition, StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
-import { BatchHttpLink } from "@apollo/client/link/batch-http";
+import { MultipartBatchHttpLink } from "./MultipartBatchHttpLink";
 
 startTransition(() => {
-  const link = new BatchHttpLink({
+  const link = new MultipartBatchHttpLink({
     uri: "http://localhost:5000/graphql",
     batchMax: 5, // No more than 5 operations per batch
-    batchInterval: 20 // Wait no more than 20ms after first batched operation
+    batchInterval: 20, // Wait no more than 20ms after first batched operation
   });
 
   const client = new ApolloClient({
@@ -24,7 +24,6 @@ startTransition(() => {
     link: link,
     cache: new InMemoryCache(),
   });
-
 
   hydrateRoot(
     document,

@@ -44,6 +44,10 @@ TestResult.xml
 [Rr]eleasePS/
 dlldata.c
 
+# Remix build
+app/build
+public
+
 # .NET Core
 project.lock.json
 project.fragment.lock.json
