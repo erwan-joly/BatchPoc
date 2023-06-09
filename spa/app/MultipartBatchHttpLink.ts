@@ -12,9 +12,13 @@ import {
   serializeFetchParameter,
   createSignalIfSupported,
 } from "@apollo/client";
-import { handleError } from "@apollo/client/link/http/parseAndCheckHttpResponse";
+import {
+  handleError,
+  readJsonBody,
+} from "@apollo/client/link/http/parseAndCheckHttpResponse";
 import { BatchLink } from "@apollo/client/link/batch";
 import { filterOperationVariables } from "@apollo/client/link/utils";
+import { isAsyncIterableIterator } from "@apollo/client/utilities";
 import {
   hasDirectives,
   removeClientSetsFromDocument,
@@ -165,13 +169,16 @@ export class MultipartBatchHttpLink extends ApolloLink {
               operation.setContext({ response })
             );
 
-            const results = [];
-            // @ts-ignore (TODO: narrow response type to only AsyncGenerator)
-            for await (const part of response) {
-              results.push(part.body);
+            if (isAsyncIterableIterator(response)) {
+              const results = [];
+              for await (const part of response) {
+                results.push(part.body as FetchResult);
+              }
+              observer.next?.(results);
+              observer.complete?.();
+            } else {
+              readJsonBody(response, operations, observer);
             }
-            observer.next?.(results);
-            observer.complete?.();
           })
           ///////////////////////////////////////////////
           // changes to default BatchHttpLink end here //
