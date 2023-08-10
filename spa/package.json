@@ -9,7 +9,7 @@
     "generate:graphql": "graphql-codegen"
   },
   "dependencies": {
-    "@apollo/client": "0.0.0-pr-10830-20230608162519",
+    "@apollo/client": "0.0.0-pr-11141-20230810002434",
     "@remix-run/css-bundle": "^1.16.0",
     "@remix-run/node": "^1.16.0",
     "@remix-run/react": "^1.16.0",

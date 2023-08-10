@@ -10,10 +10,10 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@apollo/client@0.0.0-pr-10830-20230608162519":
-  version "0.0.0-pr-10830-20230608162519"
-  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-0.0.0-pr-10830-20230608162519.tgz#c3681027f730259056200970c112785bc5427ac9"
-  integrity sha512-PLlfXwHVFDkrXEoQttmo/o9zL2B7dXQ+KU0ABWqy40ipnd6PBNJGVGqZaQK4YpTtoCUz4Lh4oaT5R6S9/MnfEQ==
+"@apollo/client@0.0.0-pr-11141-20230810002434":
+  version "0.0.0-pr-11141-20230810002434"
+  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-0.0.0-pr-11141-20230810002434.tgz#3ae11369fdaf67801426cb3a5a80fbe6a3ce33bb"
+  integrity sha512-uSag/sRDrrCoLBznf8kx26xwF/Sh3ycNW/RkvCfbGgBINzbKoj1Y4Ig6DsDhTKqF3xQfHOVe32Jk8g2Ce4NbiA==
   dependencies:
     "@graphql-typed-document-node/core" "^3.1.1"
     "@wry/context" "^0.7.3"
@@ -21,7 +21,7 @@
     "@wry/trie" "^0.4.3"
     graphql-tag "^2.12.6"
     hoist-non-react-statics "^3.3.2"
-    optimism "^0.17.4"
+    optimism "^0.17.5"
     prop-types "^15.7.2"
     response-iterator "^0.2.6"
     symbol-observable "^4.0.0"
@@ -6735,7 +6735,7 @@ open@^9.1.0:
     is-inside-container "^1.0.0"
     is-wsl "^2.2.0"
 
-optimism@^0.17.4:
+optimism@^0.17.5:
   version "0.17.5"
   resolved "https://registry.yarnpkg.com/optimism/-/optimism-0.17.5.tgz#a4c78b3ad12c58623abedbebb4f2f2c19b8e8816"
   integrity sha512-TEcp8ZwK1RczmvMnvktxHSF2tKgMWjJ71xEFGX5ApLh67VsMSTy1ZUlipJw8W+KaqgOmQ+4pqwkeivY89j+4Vw==
