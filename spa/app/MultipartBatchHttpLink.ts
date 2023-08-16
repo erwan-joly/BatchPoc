@@ -14,16 +14,25 @@ import {
 } from "@apollo/client";
 import {
   handleError,
-  readJsonBody,
+  parseAndCheckHttpResponse,
 } from "@apollo/client/link/http/parseAndCheckHttpResponse";
 import { BatchLink } from "@apollo/client/link/batch";
 import { filterOperationVariables } from "@apollo/client/link/utils";
-import { isAsyncIterableIterator } from "@apollo/client/utilities";
+import { canUseAsyncIteratorSymbol } from "@apollo/client/utilities";
 import {
   hasDirectives,
   removeClientSetsFromDocument,
 } from "@apollo/client/utilities";
 import { meros } from "meros";
+
+export function isAsyncIterableIterator(
+  value: any
+): value is AsyncIterableIterator<any> {
+  return !!(
+    canUseAsyncIteratorSymbol &&
+    (value as AsyncIterableIterator<any>)[Symbol.asyncIterator]
+  );
+}
 
 export class MultipartBatchHttpLink extends ApolloLink {
   private batchDebounce?: boolean;
@@ -127,7 +136,7 @@ export class MultipartBatchHttpLink extends ApolloLink {
         if (result.body.variables && !includeUnusedVariables) {
           result.body.variables = filterOperationVariables(
             result.body.variables,
-            operation
+            operation.query
           );
         }
 
@@ -158,6 +167,7 @@ export class MultipartBatchHttpLink extends ApolloLink {
       }
 
       return new Observable<FetchResult[]>((observer) => {
+        const observerNext = observer.next.bind(observer);
         fetcher!(chosenURI, options)
           /////////////////////////////////////////////////
           // changes to default BatchHttpLink begin here //
@@ -177,7 +187,9 @@ export class MultipartBatchHttpLink extends ApolloLink {
               observer.next?.(results);
               observer.complete?.();
             } else {
-              readJsonBody(response, operations, observer);
+              return parseAndCheckHttpResponse(operations)(response).then(
+                observerNext
+              );
             }
           })
           ///////////////////////////////////////////////
